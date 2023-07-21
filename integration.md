@@ -122,26 +122,27 @@ areaCode=86&asyncUrl=127.0.0.1:8090/v1/demo/return.php&coinAmount=20&coinSign=US
 * 请求参数
 
 |参数|释义|类型|长度|是否必须|默认值|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|
 |companyId|商户id|long|20|Y| |
 |kyc|用户验证级别|string||Y|2|
 |username|用户姓名|string|中文: 2-15 位;英文: 2-35位|Y| |
 |areaCode|国际区号 |string||N|86|
 |phone|手机号|string||Y| |
+|email|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
 |orderType|订单类型1、快捷买单 2、快捷卖单|Integer||Y| |
 |idCardType|证件类型(1.身份证 2.护照 3.其他)|Integer||N| |
 |idCardNum|证件号码|string||N| |
 |payCardNo|银行卡号（快捷卖单必填）|string||N| |
-|payCardBank|开户银行（快捷卖单必填）,当payCoinSign为`vnd`时需准确填入银行名称,参考<a href="#vnd_area">vnd区银行名称</a>|string||N| |
+|payCardBank|开户银行（快捷卖单必填）,当payCoinSign为`vnd`时需准确填入银行名称,参考<a href="#vnd_bank_area">vnd区银行名称</a>|string||N| |
 |payCardBranch|开户支行|string||N| |
 |companyOrderNum|商户订单号|string||Y| |
 |coinSign|数字货币标识(USDT)|string||Y| |
 |payCoinSign|法币币别，须传小写英文(cny，vnd)|string||Y| |
-|coinAmount|USDT下单数字货币数量(coinAmount和 total 两个字段二选一，当两个字段都填写的时候，优先处理total)<br>coinAmount参数换算后法币，金额若不为整数将无条件进位为，整数显示于收银台|BigDecimal||Y| |
+|coinAmount|USDT下单数字货币数量(coinAmount和 total 两个字段二选一，当两个字段都填写的时候，优先处理total)coinAmount参数换算后的法币金额若不为整数，将无条件进位为整数显示于收银台|BigDecimal||Y| |
 |total|用户付款的法币总金额(快捷买单只能传整数，快捷卖单不限) |BigDecimal||N| |
 |orderPayChannel|当payCoinSign为`cny`时支持 3.银行卡 支付方式，当payCoinSign为`vnd`时支持 1.MOMO 3.Bank card 支付方式[vnd快捷卖单只支持`Bank card` 支付方式]|Integer||N|3|
 |displayUnitPrice|客户自定义单价（最多接收四位小数）详见<a href ="#trading_rules">交易规则&常见问题</a> |BigDecimal||N| |
-|orderTime|	订单时间戳(北京时间) |string||Y| |
+|orderTime|	订单时间戳（使用当前时间戳，与当前时间相差5分钟视为无效） |string||Y||
 |syncUrl|同步回调地址|string||Y| |
 |asyncUrl|异步回调地址|string||Y| |
 |sign|签名|string||Y| &nbsp; |
@@ -209,6 +210,7 @@ areaCode=86&asyncUrl=127.0.0.1:8090/v1/demo/return.php&coinAmount=20&coinSign=US
 |username|-|用户名|string||Y| |
 |areaCode|-|区号|string||N| |
 |phone|-|手机号|string||Y| |
+|email|-|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
 |payCardNo|-|银行卡号|string||Y| |
 |payCardBank|-|开户银行,,当payCoinSign为`vnd`时需准确填入银行名称,参考<a href="#4f">vnd区银行名称</a>|string||Y| |
 |payCardBranch|-|开户支行|string||N| |
@@ -593,6 +595,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |companyId|商户id|long||Y| |
 |areaCode|国际区号|string||Y| |
 |phone|手机号|string||Y| |
+|email|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
 |sign|参数签名|string ||Y|&nbsp;|
 
 
@@ -865,6 +868,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |6106|查询用户取消时长失败|
 |6107|查询订单回调信息失败|
 |6108|该订单在执行其它操作， 稍后重试！|
+|6109|银行卡号只能输入数字和空格|
 |6113|订单时间不在有效期内,请重新下单.|
 |6114|无权访问|
 |6121|订单已在处理，稍后重试。|
@@ -879,6 +883,10 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |8026|保证金查询失败|
 |8027|支付币种错误|
 |8032|商户不在系统设定白名单内|
+|8033|无法使用Email下单|
+|8034|邮箱格式错误|
+|8035|邮箱或者手机号需至少填写一个|
+|8036|不能同时使用邮箱和手机号|
 |51008|获取价格异常, 请检查币种类型!|
 
 ### <a name="6">交易规则 & 常见问题</a> 

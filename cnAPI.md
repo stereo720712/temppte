@@ -12,10 +12,12 @@ ChipPay是一家交易数字货币(USDT)平台，为商户提供了快捷买卖�
 
 商户可以使用测试服务器进行测试，建议在测试环境对接完成后再切换生产环境。如遇到问题，请先查询文档常见问题说明，如还不能解决，可以咨询相关技术人员。
 - 测试环境(<span style="color:red">测试环境请勿真实打款！！！</span>)
-	>接口域名：`https://open-v2.chippaytest.com/`
+
+  >接口域名：`https://open-v2.chippaytest.com/`
 - 正式环境
-	>接口域名：`https://open-v2.chippay.com/`
-	
+  >接口域名：`https://open-v2.chippay.com/`
+
+
 <br>
 
 #### 接口组装
@@ -52,7 +54,7 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 ```
 
 -  下单请求示例
-    例如：对于如下的参数进行签名  
+   例如：对于如下的参数进行签名
 
 ```json	
    {
@@ -86,25 +88,25 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 * 使用SHA256withRSA算法. 生成的私钥对排序后的字符串进行签名，签名后的结果赋值于参数sign
 ````json
    {
-         "areaCode":"86",
-         "asyncUrl":"127.0.0.1:8090/v1/demo/return.php",
-         "total":"200",
-         "coinAmount":"20",
-         "coinSign":"USDT",
-         "companyId":"12511234561",
-         "companyOrderNum":"NB1594174982945",
-         "idCardNum":"430524143201097878",
-         "idCardType":"1",
-         "kyc":"2",
-         "orderPayChannel":"3",
-         "orderTime":"1594174982945",
-         "orderType":"1",
-         "payCoinSign":"cny",
-         "phone":"18900000001",
-         "syncUrl":"127.0.0.1:8090/v1/demo/return.php",
-         "username":"范思哲",
-         "sign":"fjQBh3XbPlUWYQ+y+5HM760n39212c3nqHgxOk/d02wBlONPIhO1Y5QM7vS5FDcrbQeIfVpxJPRjESWSitFCReXJHFGkEh2tceKrXyRcupkqzPnquNHrSQuuA4uDp3DeAyqVMxO+N8+rDu3KTcZL8egMIiUFAKjQgX+i4TgeKFU="
-   }  
+  "areaCode":"86",
+  "asyncUrl":"127.0.0.1:8090/v1/demo/return.php",
+  "total":"200",
+  "coinAmount":"20",
+  "coinSign":"USDT",
+  "companyId":"12511234561",
+  "companyOrderNum":"NB1594174982945",
+  "idCardNum":"430524143201097878",
+  "idCardType":"1",
+  "kyc":"2",
+  "orderPayChannel":"3",
+  "orderTime":"1594174982945",
+  "orderType":"1",
+  "payCoinSign":"cny",
+  "phone":"18900000001",
+  "syncUrl":"127.0.0.1:8090/v1/demo/return.php",
+  "username":"范思哲",
+  "sign":"fjQBh3XbPlUWYQ+y+5HM760n39212c3nqHgxOk/d02wBlONPIhO1Y5QM7vS5FDcrbQeIfVpxJPRjESWSitFCReXJHFGkEh2tceKrXyRcupkqzPnquNHrSQuuA4uDp3DeAyqVMxO+N8+rDu3KTcZL8egMIiUFAKjQgX+i4TgeKFU="
+}  
 ````
 ### <a name="3">交易接口 </a>
 
@@ -120,11 +122,14 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 
 
 * 请求url
+
   > {{domain}}/cola/apiOpen/addOrder
 * 请求格式
+
   > <span style = "color: red;font-size:20px;font-weight:bold">httppost+json</span>
 * 请求头部
-  > <span style = "color: red;font-size:20px;font-weight:bold">Content-Type:application/json  </span> 
+
+> <span style = "color: red;font-size:20px;font-weight:bold">Content-Type:application/json  </span>
 
 * 请求参数
 
@@ -135,6 +140,7 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 |username|用户姓名|string|中文: 2-15 位;英文: 2-35位|Y| |
 |areaCode|国际区号 |string||N|86|
 |phone|手机号|string||Y| |
+|email|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
 |orderType|订单类型1、快捷买单 2、快捷卖单|Integer||Y| |
 |idCardType|证件类型(1.身份证 2.护照 3.其他)|Integer||N| |
 |idCardNum|证件号码|string||N| |
@@ -156,51 +162,54 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 * 请求示例
  ```json
  {
-        "companyId":"12511234561",
-        "kyc":"2",
-        "username":"范思哲",
-        "areaCode":"86",
-        "phone":"18900000077",
-        "orderType":1,
-        "idCardType":1,
-        "idCardNum":"430524143201097878",
-        "companyOrderNum":"NB1594174989999",
-        "coinSign":"USDT",
-        "payCoinSign":"cny",
-        "coinAmount":20,
-        "orderPayChannel":3,
-        "orderTime":"1617935991616",
-        "total":200,
-        "syncUrl":"127.0.0.1:8090/v1/demo/return.php",  
-        "asyncUrl":"127.0.0.1:8090/v1/demo/return.php",
-        "sign":"BaTUESdfEKFTWcEn2a/r2Qenoz2sPN4HQafIqQtfPhlRtSbiprUuFNTBBymg2R5wxMRBCJySlagoPoqSyCAxW39vJPErPmpWbqLyoWjRgs6HSJPUE4HPVFqBHNNopOrKmValtozZKJEWZxTp3g6nv19dBVmgNCLnckx+N8YbC+Q="
-        	
-	} 
+  "companyId":"12511234561",
+  "kyc":"2",
+  "username":"范思哲",
+  "areaCode":"86",
+  "phone":"18900000077",
+  "orderType":1,
+  "idCardType":1,
+  "idCardNum":"430524143201097878",
+  "companyOrderNum":"NB1594174989999",
+  "coinSign":"USDT",
+  "payCoinSign":"cny",
+  "coinAmount":20,
+  "orderPayChannel":3,
+  "orderTime":"1617935991616",
+  "total":200,
+  "syncUrl":"127.0.0.1:8090/v1/demo/return.php",
+  "asyncUrl":"127.0.0.1:8090/v1/demo/return.php",
+  "sign":"BaTUESdfEKFTWcEn2a/r2Qenoz2sPN4HQafIqQtfPhlRtSbiprUuFNTBBymg2R5wxMRBCJySlagoPoqSyCAxW39vJPErPmpWbqLyoWjRgs6HSJPUE4HPVFqBHNNopOrKmValtozZKJEWZxTp3g6nv19dBVmgNCLnckx+N8YbC+Q="
+
+} 
  ```
 
 * 返回示例
-   
+
  ```json
    {
-       "code": 200,
-       "msg": "成功",
-       "data": {
-           "link": "https://cashier-v2.chippaytest.com/#/buy?orderNo=12511234561_16179362628822&phone=189****0077",
-           "orderNo": "12511234561_16179362628822"
-       },
-       "success": true
-   }
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "link": "https://cashier-v2.chippaytest.com/#/buy?orderNo=12511234561_16179362628822&phone=189****0077",
+    "orderNo": "12511234561_16179362628822"
+  },
+  "success": true
+}
  ```
 
 
 ##### <a name="3a1">快捷批量卖单</a>
 
 * 请求url
+
   > {{domain}}/cola/apiOpen/merchantOrder/apiBatchSellOrder
 * 请求格式
+
   > <span style = "color: red;font-size:20px;font-weight:bold">httppost+json</span>
 * 请求头部
-  > <span style = "color: red;font-size:20px;font-weight:bold">Content-Type:application/json   </span>
+
+> <span style = "color: red;font-size:20px;font-weight:bold">Content-Type:application/json   </span>
 
 * 请求参数
 
@@ -214,12 +223,13 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 |username|-|用户名|string||Y| |
 |areaCode|-|区号|string||N| |
 |phone|-|手机号|string||Y| |
+|email|-|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
 |payCardNo|-|银行卡号|string||Y| |
 |payCardBank|-|开户银行，当payCoinSign为`vnd`时需准确填入银行名称，参考<a href="#vnd_bank_area">vnd区银行名称</a>|string||Y| |
 |payCardBranch|-|开户支行|string||N| |
 |companyOrderNum|-|商户订单号|string||Y| |
 |coinAmount|-|USDT下单数字货币数量(coinAmount和 total 两个字段二选一，当两个字段都填写的时候，优先处理total)coinAmount参数换算后的法币金额若不为整数，将无条件进位为整数显示于收银台|BigDecimal||Y| |
-|total|-|用户付款的法币总金额 |BigDecimal||N|&nbsp; | 
+|total|-|用户付款的法币总金额 |BigDecimal||N|&nbsp; |
 
 
 
@@ -227,42 +237,42 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 
  ````json
    {
-         "payCoinSign":"cny",
-         "companyId": "12511234561",
-         "asyncUrl": "199.99.99.99",
-         "apiRecordList": [{
-            "username": "李四",
-            "areaCode": "86",
-            "phone": "18320926666",
-            "payCardNo": "622848202009358999",
-            "payCardBank": "中国银行",
-            "payCardBranch": "上海",
-            "companyOrderNum": "BNB999999999",
-            "coinAmount": "100",
-            "total": "200"
-         }, {
-            "username": "周五",
-            "areaCode": "86",
-            "phone": "18320928888",
-            "payCardNo": "622848202009358999",
-            "payCardBank": "中国银行",
-            "payCardBranch": "深圳",
-            "companyOrderNum": "BNB888888888",
-            "coinAmount": "100"
-         }, {
-            "username": "吴六",
-            "areaCode": "86",
-            "phone": "18320929999",
-            "payCardNo": "622848202009358999",
-            "payCardBank": "中国银行",
-            "payCardBranch": "香港",
-            "companyOrderNum": "BNB99999888",
-            "total": "100"
-         }]
+  "payCoinSign":"cny",
+  "companyId": "12511234561",
+  "asyncUrl": "199.99.99.99",
+  "apiRecordList": [{
+    "username": "李四",
+    "areaCode": "86",
+    "phone": "18320926666",
+    "payCardNo": "622848202009358999",
+    "payCardBank": "中国银行",
+    "payCardBranch": "上海",
+    "companyOrderNum": "BNB999999999",
+    "coinAmount": "100",
+    "total": "200"
+  }, {
+    "username": "周五",
+    "areaCode": "86",
+    "phone": "18320928888",
+    "payCardNo": "622848202009358999",
+    "payCardBank": "中国银行",
+    "payCardBranch": "深圳",
+    "companyOrderNum": "BNB888888888",
+    "coinAmount": "100"
+  }, {
+    "username": "吴六",
+    "areaCode": "86",
+    "phone": "18320929999",
+    "payCardNo": "622848202009358999",
+    "payCardBank": "中国银行",
+    "payCardBranch": "香港",
+    "companyOrderNum": "BNB99999888",
+    "total": "100"
+  }]
 }
-````
+ ````
 
- * 生成【待签名的字符串】
+* 生成【待签名的字符串】
   ````xml
      apiRecordList=[{areaCode=86,coinAmount=100,companyOrderNum=BNB999999999,payCardBank=中国银行,payCardBranch=上海,payCardNo=622848202009358999,phone=18320926666,total=200,username=李四},{areaCode=86,coinAmount=100,companyOrderNum=BNB888888888,payCardBank=中国银行,payCardBranch=深圳,payCardNo=622848202009358999,phone=18320928888,username=周五},{areaCode=86,companyOrderNum=BNB99999888,payCardBank=中国银行,payCardBranch=香港,payCardNo=622848202009358999,phone=18320929999,total=100,username=吴六}]&asyncUrl=199.99.99.99&companyId=12511234561&payCoinSign=cny
   ````
@@ -271,52 +281,52 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 
 ````json
 {
-        "sign":"c1sx47fjg6rbqICGCoiuNVUkJJbYdqR5ehSxVSALql7FBVC/HtmWE1MntSKxQmK7aVNSJ7ZGLD7EHmZWHRVKZVwMI5vyfTAFgT6XMiJFDdS8B6skh3D1an2OhbCOkm/+GhB8Btruqebfi9K3n8ud6C3ioHCCSHIE9PTaSyu3h4g=",
-         "payCoinSign":"cny",
-         "companyId": "12511234561",
-         "asyncUrl": "199.99.99.99",
-         "apiRecordList": [{
-            "username": "李四",
-            "areaCode": "86",
-            "phone": "18320926666",
-            "payCardNo": "622848202009358999",
-            "payCardBank": "中国银行",
-            "payCardBranch": "上海",
-            "companyOrderNum": "BNB999999999",
-            "coinAmount": "100",
-            "total": "200"
-         }, {
-            "username": "周五",
-            "areaCode": "86",
-            "phone": "18320928888",
-            "payCardNo": "622848202009358999",
-            "payCardBank": "中国银行",
-            "payCardBranch": "深圳",
-            "companyOrderNum": "BNB888888888",
-            "coinAmount": "100"
-         }, {
-            "username": "吴六",
-            "areaCode": "86",
-            "phone": "18320929999",
-            "payCardNo": "622848202009358999",
-            "payCardBank": "中国银行",
-            "payCardBranch": "香港",
-            "companyOrderNum": "BNB99999888",
-            "total": "100"
-         }]
+  "sign":"c1sx47fjg6rbqICGCoiuNVUkJJbYdqR5ehSxVSALql7FBVC/HtmWE1MntSKxQmK7aVNSJ7ZGLD7EHmZWHRVKZVwMI5vyfTAFgT6XMiJFDdS8B6skh3D1an2OhbCOkm/+GhB8Btruqebfi9K3n8ud6C3ioHCCSHIE9PTaSyu3h4g=",
+  "payCoinSign":"cny",
+  "companyId": "12511234561",
+  "asyncUrl": "199.99.99.99",
+  "apiRecordList": [{
+    "username": "李四",
+    "areaCode": "86",
+    "phone": "18320926666",
+    "payCardNo": "622848202009358999",
+    "payCardBank": "中国银行",
+    "payCardBranch": "上海",
+    "companyOrderNum": "BNB999999999",
+    "coinAmount": "100",
+    "total": "200"
+  }, {
+    "username": "周五",
+    "areaCode": "86",
+    "phone": "18320928888",
+    "payCardNo": "622848202009358999",
+    "payCardBank": "中国银行",
+    "payCardBranch": "深圳",
+    "companyOrderNum": "BNB888888888",
+    "coinAmount": "100"
+  }, {
+    "username": "吴六",
+    "areaCode": "86",
+    "phone": "18320929999",
+    "payCardNo": "622848202009358999",
+    "payCardBank": "中国银行",
+    "payCardBranch": "香港",
+    "companyOrderNum": "BNB99999888",
+    "total": "100"
+  }]
 }
 ````
- * 返回示例
-  
-   ````json
-      {
-         "code": 200,
-         "msg": "成功",
-         "data": null,
-         "success": true
-      }
+* 返回示例
 
-   ````
+  ````json
+     {
+        "code": 200,
+        "msg": "成功",
+        "data": null,
+        "success": true
+     }
+
+  ````
 
 
 #### <a name="3a">回调通知</a>
@@ -335,12 +345,12 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 
 * 通知地址来自商户
   订单完成后，信息将返回给商户。格式与响应相同
-    * 这个回调地址是由「API快捷买卖」中的商家:参数[asyncUrl]提供的
-    * ChipPay接收到快捷订单信息并进行处理后，ChipPay服务器将异步请求此接口。
-    *  商家的这个接口必须返回一个json格式。如果code == 200的json格式，ChipPay会认为请求成功，不会再请求
-    *  错误响应(比如:回调响应`404,502`等 归类为错误回调, 系统默认回调`2`次)
-    *  失败回调(比如:回调响应延迟或者其他网页信息等.系统默认回调`5`次)
-    *  <span style = "color: red">异常处理订单将会有两次回调，交易状态分别为「交易失败」及「交易成功」，详情请参考常见问题</span>【 <a href='#8'>关于异常订单</a>】
+  * 这个回调地址是由「API快捷买卖」中的商家:参数[asyncUrl]提供的
+  * ChipPay接收到快捷订单信息并进行处理后，ChipPay服务器将异步请求此接口。
+  *  商家的这个接口必须返回一个json格式。如果code == 200的json格式，ChipPay会认为请求成功，不会再请求
+  *  错误响应(比如:回调响应`404,502`等 归类为错误回调, 系统默认回调`2`次)
+  *  失败回调(比如:回调响应延迟或者其他网页信息等.系统默认回调`5`次)
+  *  <span style = "color: red">异常处理订单将会有两次回调，交易状态分别为「交易失败」及「交易成功」，详情请参考常见问题</span>【 <a href='#8'>关于异常订单</a>】
 
 *  回调参数
 
@@ -359,7 +369,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |sign|参数签名|string||Y| &nbsp;  |
 
 * 回调参数示例
-  
+
 ````json  
   {
     "coinAmount":"100.00",
@@ -377,31 +387,34 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 ````
 
 * 响应参数示例
-  
+
 
 ````json
  {
-    "code": 200,
-    "msg": "success",
-    "data": {
-        "otcOrderNum": "ChipPay订单号",
-        "companyOrderNum": "商户订单号"
-    },
-    "success":true
-  }
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "otcOrderNum": "ChipPay订单号",
+    "companyOrderNum": "商户订单号"
+  },
+  "success":true
+}
 ````
 
 ### <a name="4">查询接口 </a>
 ##### <a name="4a">查询订单信息</a>
 
 * 请求url
+
   > {{domain}}/cola/apiOpen/common/getOrderInfo
 * 请求格式
+
   > <span style = "color: red;font-size:20px;font-weight:bold">httppost+json</span>
 * 请求头部
-  > <span style = "color: red;font-size:20px;font-weight:bold">Content-Type:application/json</span>      
+
+  > <span style = "color: red;font-size:20px;font-weight:bold">Content-Type:application/json</span>
 * 请求参数
-  
+
 |参数|释义|类型|长度|是否必须|默认值|
 |--|--|--|--|--|--|
 |companyId|商户id|long||Y| |
@@ -413,14 +426,14 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 
  ````json
   {
-      "companyId":"12511234561", 
-      "companyOrderNum":"NS1592747733465",
-      "sign":"JRyOrvHsF1BnHcK6j1VgM9JYLOud9biyYP+8cnEU2GcyB5PoF6mJlIYrjCxDJDs67qdRJi1tIs6ePnYycsppKbVzcwJ1GXKgRvXDMIjx8DBPvNSlGxC+cOaHxBzrpcIfFg5NGcVAlB7BoIWc+2tUtcxQGTPSBkTBlteY5RotAHU="
-   } 
+  "companyId":"12511234561",
+  "companyOrderNum":"NS1592747733465",
+  "sign":"JRyOrvHsF1BnHcK6j1VgM9JYLOud9biyYP+8cnEU2GcyB5PoF6mJlIYrjCxDJDs67qdRJi1tIs6ePnYycsppKbVzcwJ1GXKgRvXDMIjx8DBPvNSlGxC+cOaHxBzrpcIfFg5NGcVAlB7BoIWc+2tUtcxQGTPSBkTBlteY5RotAHU="
+} 
  ````
 
 * 响应参数示例
-  
+
   ````json
   {
       "code": 200,
@@ -443,16 +456,19 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
   }
 
   ````
-  
-##### <a name="4b">查询用户交易信息</a> 
+
+##### <a name="4b">查询用户交易信息</a>
 
 * 请求url
+
   > {{domain}}/cola/apiOpen/common/getUserOrderInfo
 * 请求格式
-  > httppost+json
+
+> httppost+json
 
 * 请求头部
-  > Content-Type:application/json      
+
+  > Content-Type:application/json
 * 请求参数
 
 |参数|释义|类型|长度|是否必须|默认值|
@@ -460,6 +476,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |companyId|商户id|long||Y| |
 |areaCode|国际区号|string||Y| |
 |phone|手机号|string||Y| |
+|email|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
 |sign|参数签名|string ||Y|&nbsp;|
 
 
@@ -467,15 +484,15 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 
  ````json
 {
-   "companyId":"12511234561",
-   "areaCode":"86",
-   "phone":"18320925789",
-   "sign":"ciq0iy+wUO2qjvj06TaRSR4/WStDYAUbdZmfp3iSMzAUS0ZBSkhmvdxaCo9EoiHOtAIlxASCc0e0EyglQ7XjVetcDfBVwyRXfG0iw64jABA5Dzqix/hV4zSXp0oJqAEdEQuCsLReY7DRrOVn8JG2oVCxt2hFn9TwgN7w99YkDpk="
-   } 
+  "companyId":"12511234561",
+  "areaCode":"86",
+  "phone":"18320925789",
+  "sign":"ciq0iy+wUO2qjvj06TaRSR4/WStDYAUbdZmfp3iSMzAUS0ZBSkhmvdxaCo9EoiHOtAIlxASCc0e0EyglQ7XjVetcDfBVwyRXfG0iw64jABA5Dzqix/hV4zSXp0oJqAEdEQuCsLReY7DRrOVn8JG2oVCxt2hFn9TwgN7w99YkDpk="
+} 
  ````
 
 * 响应参数示例
-  
+
   ````json
   {
     "code": 200,  
@@ -491,27 +508,29 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
   ````
 
 
-##### <a name="4c">查询价格</a> 
+##### <a name="4c">查询价格</a>
 
 * 请求url
+
   > {{domain}}/cola/quotePriceBusiness/priceConfig/getPrice
 * 请求格式
+
   > <span style = "color: red;font-size:20px;font-weight:bold">get</span>
 * 请求参数
-  
+
 |参数|释义|类型|长度|是否必须|默认值|
 |--|--|--|--|--|--|
 |coinType|币种(cnyusdt, vndusdt)|string||Y|&nbsp;|
 
 
 * 请求参数示例
-  
+
   ```xml
   {{domain}}/cola/quotePriceBusiness/priceConfig/getPrice?coinType=cnyusdt
   ```
 
 * 响应参数示例
-  
+
  ```json     
   {
     "code": 200,
@@ -527,33 +546,35 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
  ```
 
 
- ##### <a name="4d">查询账户余额</a> 
+##### <a name="4d">查询账户余额</a>
 
 * 请求url
-   > {{domain}}/cola/apiOpen/merchant/getMerchantAmount
+
+  > {{domain}}/cola/apiOpen/merchant/getMerchantAmount
 * 请求格式
-   > <span style = "color: red;font-size:20px;font-weight:bold">httppost+json</span>
+
+  > <span style = "color: red;font-size:20px;font-weight:bold">httppost+json</span>
 * 请求参数
-  
-|参数|释义|类型|长度|是否必须|默认值| 
-|--|--|--|--|--|--|--|  
+
+|参数|释义|类型|长度|是否必须|默认值|
+|--|--|--|--|--|--|--|
 |companyId|商户ID|long||Y| |
 |accountType|账户类型 不填默认为5 (账户类型: 1:BTC,2:ETH,5:USDT)|string||N| |
 |sign|签名(规则详见签名规则文档)|string||Y| &nbsp;|
 
 
 * 请求参数示例
-  
+
 ```JSON
    {
-      "companyId": "12511234561",
-      "accountType": "5",
-      "sign": "Vjkhrmep86GL03EHs4YAAJE0oi9Cfm4EWTIdIEVe1btIfZJymSMu01bFFamMVv3fAwfB9QBysl3L1RPn0USCmCW9wfGeP12Mn1hKPqM0iCJskZ3ZiYDCaO02T3vgfSdI+XC5urI+XuDoDxTpfX3NDHSI+xtV7KBi/ORczLasweQ="
-   } 
+  "companyId": "12511234561",
+  "accountType": "5",
+  "sign": "Vjkhrmep86GL03EHs4YAAJE0oi9Cfm4EWTIdIEVe1btIfZJymSMu01bFFamMVv3fAwfB9QBysl3L1RPn0USCmCW9wfGeP12Mn1hKPqM0iCJskZ3ZiYDCaO02T3vgfSdI+XC5urI+XuDoDxTpfX3NDHSI+xtV7KBi/ORczLasweQ="
+} 
 ```
 
 * 响应参数示例
-  
+
  ```json     
   {
     "code": 200,
@@ -618,7 +639,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |Vietnam-Russia Joint Venture Bank|
 |Vietnam Development Bank|
 
-### <a name="5">状态码</a> 
+### <a name="5">状态码</a>
 
 |code|msg|
 |--|--|
@@ -701,7 +722,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |6078|交易员确认失败！|
 |6079|卖单取消失败！|
 |6080|申请异常订单失败！|
-|6081|由于您订单操作频繁，为了你的账户安全，系統已先暂停您的下单權限，如需开启请联系客服|
+|6081|由于您订单操作频繁，为了你的账户安全，系统已先暂停您的下单权限，如需开启请联系客服|
 |6082|商户订单号不存在！|
 |6083|对应的支付渠道未开启|
 |6084|对应的支付币种未开启|
@@ -734,9 +755,13 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 |6114|无权访问|
 |8002|金额必须为整数!|
 |8005|请正确输入银行名称|
+|8033|无法使用Email下单|
+|8034|邮箱格式错误|
+|8035|邮箱或者手机号需至少填写一个|
+|8036|不能同时使用邮箱和手机号|
 
 
-### <a name="6">交易规则 & 常见问题</a> 
+### <a name="6">交易规则 & 常见问题</a>
 <span name = 'trading_rules'></span>
 ##### 交易规则:
 
@@ -756,16 +781,17 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 
 - <a name='8'>关于异常订单</a>
   「快捷买单」用户未在订单时间内打款、银行延迟到帐、或实付金额与订单金额不符皆会导致订单取消。当交易员在确认收到款后，可透过异常处理流程处理订单，让币入帐
-    - 异常订单回调说明
-      假设汇率为7 CNY =1 USDT，订单金额为700CNY，用户实付1400CNY
+  - 异常订单回调说明
+    假设汇率为7 CNY =1 USDT，订单金额为700CNY，用户实付1400CNY
 
-      ChipPay对异常订单会有两次回调，
-      第一次回调订单状态为tradeStatus = 0【交易失败】，`coinAmount`为原始订单下单数量即100，`successAmount`为0, `total`为700 (作为参考)；
-      第二次回调订单状态为tradeStatus = 1【交易成功】，`coinAmount`为原始订单下单数量即100，`successAmount`为200, `total`为1400。
+    ChipPay对异常订单会有两次回调，
+    第一次回调订单状态为tradeStatus = 0【交易失败】，`coinAmount`为原始订单下单数量即100，`successAmount`为0, `total`为700 (作为参考)；
+    第二次回调订单状态为tradeStatus = 1【交易成功】，`coinAmount`为原始订单下单数量即100，`successAmount`为200, `total`为1400。
 
 -  <a name='9'>关于`coinAmount` 参数</a>
    当买币请求参数传coinAmount (USDT数量为准)时，若换算后的CNY金额包含小数点，则系统将自动进位为整数并生成订单，客户需要多支付部分差额。
-    - 举例: 当平台汇率为6.51CNY=1USDT时，coinAmount传20，6.51*20=130.2，收银台将显示131CNY金额予客户进行付款。当有以上情况时，我方将回调Total为131、coinAmount为20且successAmount为20给贵方
+
+  - 举例: 当平台汇率为6.51CNY=1USDT时，coinAmount传20，6.51*20=130.2，收银台将显示131CNY金额予客户进行付款。当有以上情况时，我方将回调Total为131、coinAmount为20且successAmount为20给贵方
 
 #### <a name='7'>在线演示&示例代码</a>
 

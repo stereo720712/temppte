@@ -133,11 +133,12 @@ Live environment: `https://open-v2.chippay.com/cola/apiOpen/addOrder` </br>
 |username|User name|string|Chinese: 2-15 digits;English: 2-35 digits|Y| |
 |areaCode| International area code |string||N|86|
 |phone|Phone number must be 8-11 digits.|string||Y| |
+|email|User email address, supported only if payCoinSign is `vnd` ,you’ll need to transfer either phone or email.|string||N| |
 |orderType|Order type （1.Express buy 2.Express sell）|Integer||Y| |
 |idCardType|Certificate type (1. ID card 2. passport 3. others).e.g. If no value is passed, the default value is 1|Integer||N| |
 |idCardNum|Identity Number|string||N| |
 |payCardNo|Bank card number (required for express selling order)|string||N| |
-|payCardBank|Payee’s bank name (required for express selling order). If payCoinSign is “vnd”, please fill in the bank name accurately refer to  <a href="#vnd_area">“The Full List of Bank in VND Area.”</a>|string||N| |
+|payCardBank|Payee’s bank name (required for express selling order). If payCoinSign is `vnd`, please fill in the bank name accurately refer to  <a href="#vnd_area">“The Full List of Bank in VND Area.”</a>|string||N| |
 |payCardBranch|Account opening branch|string||N| |
 |companyOrderNum|Merchant order number|string||Y| |
 |coinSign|Coin sign（USDT）|string||Y| | 
@@ -215,8 +216,9 @@ Live environment: `https://open-v2.chippay.com/cola/apiOpen/addOrder` </br>
 ||username|User name |string||Y | |
 ||areaCode|International area code|string||N| |
 ||phone|Phone number must be 8-11 digits|string||Y| |
+||email|User email address, supported only if payCoinSign is `vnd` ,you’ll need to transfer either phone or email.|string||N| |
 ||payCardNo|Bank card number|string||Y| |
-||payCardBank|Account opening bank,If payCoinSign is “vnd”, please fill in the bank name accurately refer to <a href="#vnd_area">“The Full List of Bank in VND Area.”</a>|string||Y| |
+||payCardBank|Account opening bank,If payCoinSign is `vnd`, please fill in the bank name accurately refer to <a href="#vnd_area">“The Full List of Bank in VND Area.”</a>|string||Y| |
 ||payCardBranch|Account opening branch|string||N| |
 ||companyOrderNum|Merchant order number|string||Y| |
 ||coinAmount|USDT quantity of the order. ( coinAmount and total are alternative parameters, and when both are filled in, total takes precedence)|BigDecimal||Y| |
@@ -587,6 +589,7 @@ Live environment：`MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0
 |companyId|Merchant Id|long||Y| |
 |areaCode|International area code |string||Y| |
 |phone|Phone number must be 8-11 digits.|string||Y| |
+|email|User email address, supported only if payCoinSign is `vnd` ,you’ll need to transfer either phone or email.|string| |N| |
 |sign|Signature string |string||Y|&nbsp;|
 
 * Request parameters example
@@ -856,6 +859,7 @@ Live environment：`MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0
    |6106|Failed to query user cancellation duration|
    |6107|Failed to query order callback information|
    |6108|The order is under other operation, try again later!|
+   |6109|The bank card number can only be numbers.|
    |6113|The timestamp of the order is not in the valid period, please place a new order.|
    |6114|No permission to access|
    |6121|The order is already processeing, try again later.|
@@ -870,6 +874,10 @@ Live environment：`MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0
    |8026|Failure in querying security deposit|
    |8027|Ｗrong payment currency|
    |8032|Merchant not in whitelist|
+   |8033|Can not use email to add order|
+   |8034|Email format error|
+   |8035|Email or phone must be filled in at least one|
+   |8036|Email and phone are both present|
    |51008|Abnormal in getting price , please check the currency type!|
 
 
