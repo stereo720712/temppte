@@ -203,20 +203,20 @@ areaCode=86&asyncUrl=127.0.0.1:8090/v1/demo/return.php&coinAmount=20&coinSign=US
 |参数|数组参数|释义|类型|长度|是否必须|默认值|
 |--|--|--|--|--|--|--|
 |companyId|-|商户ID|long|20|Y| |
-|payCoinSign|-|法币币别，须传小写英文（cny，vnd）|string||N|cny
+|payCoinSign|-|法币币别，须传小写英文（cny，vnd）|string||N|cny|
 |asyncUrl|-|回调地址|string||Y| |
-|sign|-|签名|string||Y| | 
+|sign|-|签名|string||Y| |
 |apiRecordList||订单数组|object||Y| |
-|username|-|用户名|string||Y| |
-|areaCode|-|区号|string||N| |
-|phone|-|手机号|string||Y| |
-|email|-|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
-|payCardNo|-|银行卡号|string||Y| |
-|payCardBank|-|开户银行,,当payCoinSign为`vnd`时需准确填入银行名称,参考<a href="#4f">vnd区银行名称</a>|string||Y| |
-|payCardBranch|-|开户支行|string||N| |
-|companyOrderNum|-|商户订单号|string||Y| |
-|coinAmount|-|USDT下单数字货币数量（coinAmount和 total 两个字段二选一，当两个字段都填写的时候，优先处理total）|BigDecimal||Y| |
-|total|-|用户付款的法币总金额 |BigDecimal||N|&nbsp; | 
+||username|用户名|string||Y| |
+||areaCode|区号|string||N| |
+||phone|手机号|string||Y| |
+||email|用户邮箱，只支持当payCoinSign为`vnd`时传输，phone或者email需择一传输|string||N| |
+||payCardNo|银行卡号|string||Y| |
+||payCardBank|开户银行，当payCoinSign为`vnd`时需准确填入银行名称，参考<a href="#vnd_bank_area">vnd区银行名称</a>|string||Y| |
+||payCardBranch|开户支行|string||N| |
+||companyOrderNum|商户订单号|string||Y| |
+||coinAmount|USDT下单数字货币数量(coinAmount和 total 两个字段二选一，当两个字段都填写的时候，优先处理total)coinAmount参数换算后的法币金额若不为整数，将无条件进位为整数显示于收银台|BigDecimal||Y| |
+||total|用户付款的法币总金额 |BigDecimal||N|&nbsp; |
 
 
 
