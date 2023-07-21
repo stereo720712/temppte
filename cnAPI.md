@@ -44,6 +44,8 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
   * 采用RSA 生成非对称公私钥，密钥强度1024 bit，导出格式为DER PKCS#8，具体生成方式请参考sdk
   * 商户端保留私钥，私钥需要妥善保存，不能泄露给其他人，公钥给到平台
   * 商户用私钥进行请求签名，平台用公钥进行签名校验
+  * 请商户配置正确的DTO格式进行对接 请勿使用类似 Map<String, String> 格式，对签名结果有疑问时，请提供所生成的待签名的字符串，确保资料格式正确
+
 
 ```txt
 注意：
@@ -160,6 +162,7 @@ https://open-v2.chippay.com/cola/apiOpen/addOrder
 |sign|签名|string||Y| &nbsp; |
 
 * 请求示例
+
  ```json
  {
   "companyId":"12511234561",
