@@ -452,7 +452,7 @@ Live environment：`MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0
 |Parameters|Paraphrase|Content Type|Length|Required(optional)|Default Value|
 |--|--|--|--|--|--|
 |companyId|Merchant Id|long||Y| |
-|orderNo|Otc365 order number|string||Y| |
+|orderNo|ChipPay order number|string||Y| |
 |sign|Signature string|string||Y| &nbsp;|
 
 * Request parameters example
