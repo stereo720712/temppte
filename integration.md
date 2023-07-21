@@ -403,7 +403,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 * 请求参数
   
 |参数|释义|类型|长度|是否必须|默认值|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|
 |companyId|商户id|long||Y| |
 |orderNo|ChipPay订单号|string||Y| |
 |sign|参数签名|string||Y| &nbsp;|
@@ -445,7 +445,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 * 请求参数
   
 |参数|释义|类型|长度|是否必须|默认值|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|
 |companyId|商户id|long||Y| |
 |orderNo|ChipPay订单号|string||Y| |
 |sign|参数签名|string||Y | &nbsp; |
@@ -484,7 +484,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 * 请求参数
   
 |参数|释义|类型|长度|是否必须|默认值|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|
 |companyId|商户id|long||Y| |
 |orderNo|ChipPay订单号|string||Y| |
 |sign|参数签名|string||Y|&nbsp;|
@@ -528,7 +528,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 * 请求参数
   
 |参数|释义|类型|长度|是否必须|默认值|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|
 |companyId|商户id|long||Y| |
 |orderNo|ChipPay订单号|string||Y| |
 |sign|参数签名|string||Y|&nbsp;|
@@ -636,7 +636,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 * 请求参数
   
 |参数|释义|类型|长度|是否必须|默认值|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|
 |coinType|币种(cnyusdt, vndusdt)|string||Y|&nbsp;|
 
 * 请求参数示例
@@ -671,7 +671,7 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPV284s9ydOOZGCUFIw1/0d2mtC2XX8Y6oFVYtBqhn
 * 请求参数
   
 |参数|释义|类型|长度|是否必须|默认值| 
-|--|--|--|--|--|--|--|  
+|--|--|--|--|--|--|  
 |companyId|商户ID|long||Y| |
 |accountType|账户类型 不填默认为5 (账户类型: 1:BTC,2:ETH,5:USDT)|string||N| 5|
 |sign|签名(规则详见签名规则文档)|string||Y| &nbsp;|
